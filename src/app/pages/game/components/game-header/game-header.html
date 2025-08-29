@@ -1,0 +1,22 @@
+<div class="flex items-center  w-full place-content-between mt-40">
+    <div class="flex flex-col items-center py-2 px-4 bg-white/10 hover:bg-white/20  backdrop-blur-md rounded-3xl">
+        <span class="text-4xl font-bold text-white">{{gameState.score()}}</span>
+        <span class="text-white/60 text-base">PUNTOS</span>
+    </div>
+    <div class="flex flex-col items-center py-2 px-4 bg-white/10 hover:bg-white/20  backdrop-blur-md rounded-3xl">
+        <span class="text-2xl font-extrabold text-green-400 ">{{gameState.getDifficulty()}}</span>
+        <span class="text-white/60 text-base">NIVEL</span>
+    </div>
+    <div class="flex flex-col items-center py-2 px-4 bg-white/10 hover:bg-white/20  backdrop-blur-md rounded-3xl">
+        @if(gameState.getDifficulty() == 'EASY') {
+            <span class="text-4xl font-bold text-red-600" >{{hearts()}}</span>
+        }@else if (gameState.getDifficulty() == 'MEDIUM') {
+            <span class="text-4xl font-bold text-red-600" >{{hearts()}}</span>
+        }@else {
+            <span class="text-4xl font-bold text-red-600" >{{hearts()}}</span>
+
+        }
+        <span class="text-white/60 text-base">VIDAS</span>
+    </div>
+    
+</div>

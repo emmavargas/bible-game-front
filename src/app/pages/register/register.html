@@ -1,0 +1,19 @@
+<div class="flex flex-col justify-center items-center w-full bg-white p-4 gap-6 rounded-2xl shadow-lg shadow-gray-300/50">
+    <h1 class="text-3xl font-bold text-blue-800">Crear Cuenta</h1>
+    <form class="flex flex-col w-full px-3 gap-3" [formGroup]="formRegister">
+        <div class="flex gap-3">
+            <input formControlName="name" type="text" placeholder="Nombre" class="w-full text-base placeholder:text-gray-400 text-black p-3 border-1 border-gray-300 rounded-xl focus:outline-none focus:border-gray-500/60 transition-all duration-300">
+            <input formControlName="lastname" type="text" placeholder="Apellido" class="w-full text-base placeholder:text-gray-400 text-black p-3 border-1 border-gray-300 rounded-xl focus:outline-none focus:border-gray-500/60 transition-all duration-300">
+        </div>
+        <input formControlName="username" type="text" placeholder="Usuario" class="w-full text-base placeholder:text-gray-400 text-black p-3 border-1 border-gray-300 rounded-xl focus:outline-none focus:border-gray-500/60 transition-all duration-300">
+        <input formControlName="email" type="text" autocomplete="email" placeholder="Email" class="w-full text-base placeholder:text-gray-400 text-black p-3 border-1 border-gray-300 rounded-xl focus:outline-none focus:border-gray-500/60 transition-all duration-300">
+        <input formControlName="password" type="password" placeholder="password" autocomplete="new-password" class="w-full text-base placeholder:text-gray-400 text-black p-3 border-1 border-gray-300 rounded-xl focus:outline-none focus:border-gray-500/60 transition-all duration-300">
+        <input formControlName="confirmPassword" type="password" placeholder="Confirmar password" autocomplete="new-password" class="w-full text-base placeholder:text-gray-400 text-black p-3 border-1 border-gray-300 rounded-xl focus:outline-none focus:border-gray-500/60 transition-all duration-300">
+
+        <app-button1 [textBtn]='"Registrarse"' (clicked)="register()"></app-button1>
+        <app-button2 [textBtn]="'Volver al Login'" (click)="goLogin()"></app-button2>
+    </form>
+    @if (backendError()) {
+        <small class="text-red-600 text-sm font-bold text-center mt-2 ">{{backendError()}}</small>
+    }
+</div>
