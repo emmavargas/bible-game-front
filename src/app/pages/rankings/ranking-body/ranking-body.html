@@ -1,14 +1,16 @@
-<div class="flex flex-col lg:flex-row w-full mt-4 min-[390px]:mt-6 sm:mt-8 gap-3 min-[390px]:gap-4 sm:gap-5">
-  <div class="flex-1">
-      <app-ranking-card [difficulty]="'EASY'"></app-ranking-card>
-      <app-ranking-paginator-card [difficulty]="'EASY'" (next)="onNext('EASY')" (previous)="onPrevious('EASY')"></app-ranking-paginator-card>
-  </div>
-  <div class="flex-1 mt-3 min-[390px]:mt-4 lg:mt-0">
-      <app-ranking-card [difficulty]="'MEDIUM'"></app-ranking-card>
-      <app-ranking-paginator-card [difficulty]="'MEDIUM'" (next)="onNext('MEDIUM')" (previous)="onPrevious('MEDIUM')"></app-ranking-paginator-card>
-  </div>
-  <div class="flex-1 mt-3 min-[390px]:mt-4 lg:mt-0">
-      <app-ranking-card [difficulty]="'HARD'"></app-ranking-card>
-      <app-ranking-paginator-card [difficulty]="'HARD'" (next)="onNext('HARD')" (previous)="onPrevious('HARD')"></app-ranking-paginator-card>
+<div class="flex flex-col w-[95%] min-[390px]:w-[92%] sm:w-[90%] mx-auto">
+  <div class="flex flex-col lg:flex-row w-full mt-2 min-[390px]:mt-4 sm:mt-6 gap-3 min-[390px]:gap-4 sm:gap-5">
+    <div class="flex-1 w-full">
+        <app-ranking-card [difficulty]="'EASY'"></app-ranking-card>
+        <app-ranking-paginator-card [difficulty]="'EASY'" (next)="onNext('EASY')" (previous)="onPrevious('EASY')"></app-ranking-paginator-card>
+    </div>
+    <div class="flex-1 w-full mt-3 min-[390px]:mt-4 lg:mt-0">
+        <app-ranking-card [difficulty]="'MEDIUM'"></app-ranking-card>
+        <app-ranking-paginator-card [difficulty]="'MEDIUM'" (next)="onNext('MEDIUM')" (previous)="onPrevious('MEDIUM')"></app-ranking-paginator-card>
+    </div>
+    <div class="flex-1 w-full mt-3 min-[390px]:mt-4 lg:mt-0">
+        <app-ranking-card [difficulty]="'HARD'"></app-ranking-card>
+        <app-ranking-paginator-card [difficulty]="'HARD'" (next)="onNext('HARD')" (previous)="onPrevious('HARD')"></app-ranking-paginator-card>
+    </div>
   </div>
 </div>

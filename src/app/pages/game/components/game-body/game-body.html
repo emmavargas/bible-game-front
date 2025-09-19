@@ -20,7 +20,10 @@
       formControlName="response" 
       type="text" 
       (input)="onInput($event)" 
-      [maxLength]="answerLength()"
+      [attr.maxlength]="answerLength()"
+      [attr.size]="answerLength()"
+      autocomplete="off"
+      autocapitalize="characters"
       class="bg-amber-50 p-2.5 min-[390px]:p-3 text-base min-[390px]:text-lg rounded-2xl min-[390px]:rounded-3xl border-2 focus:outline-none transition-all duration-300 text-center uppercase"
     />
 

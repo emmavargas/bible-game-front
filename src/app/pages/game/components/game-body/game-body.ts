@@ -62,7 +62,16 @@ export class GameBody {
   });
 
   onInput(event: Event) {
-    const value = (event.target as HTMLInputElement).value.toUpperCase();
+    const input = event.target as HTMLInputElement;
+    const maxLength = this.answerLength();
+    let value = input.value.toUpperCase();
+    
+    // Limitar la longitud manualmente
+    if (value.length > maxLength) {
+      value = value.slice(0, maxLength);
+      input.value = value; // Actualizar el valor del input directamente
+    }
+    
     this.text.set(value);
     this.response.setValue(value);
   }
