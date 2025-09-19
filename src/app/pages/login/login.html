@@ -1,25 +1,25 @@
-<div class="flex flex-col justify-center items-center w-full bg-white/95 backdrop-blur-xl p-4 sm:p-8 gap-4 sm:gap-6 rounded-2xl sm:rounded-3xl shadow-[0_8px_32px_rgba(100,149,237,0.1)] hover:shadow-[0_16px_48px_rgba(100,149,237,0.2)] transition-all duration-500">
-     <h1 class="text-5xl sm:text-7xl animate-bounce">🧠</h1>
-     <div class="text-center space-y-2">
-          <h2 class="text-3xl sm:text-4xl font-black bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent">RETO BIBLICO</h2>
-          <p class="text-gray-500 text-xs sm:text-sm">Inicia sesión para comenzar tu desafío</p>
+<div class="flex flex-col justify-center items-center w-full bg-white/95 backdrop-blur-xl p-4 min-[390px]:p-6 sm:p-8 gap-3 min-[390px]:gap-4 sm:gap-6 rounded-xl min-[390px]:rounded-2xl sm:rounded-3xl shadow-[0_8px_32px_rgba(100,149,237,0.1)] hover:shadow-[0_16px_48px_rgba(100,149,237,0.2)] transition-all duration-500">
+     <h1 class="text-4xl min-[390px]:text-5xl sm:text-7xl animate-bounce">🧠</h1>
+     <div class="text-center space-y-1 min-[390px]:space-y-2">
+          <h2 class="text-2xl min-[390px]:text-3xl sm:text-4xl font-black bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent">RETO BIBLICO</h2>
+          <p class="text-gray-500 text-xs min-[390px]:text-sm">Inicia sesión para comenzar tu desafío</p>
      </div>
-     <form [formGroup]="formLogin" class="flex flex-col w-full px-2 sm:px-4 gap-3 sm:gap-4 mt-2">
+     <form [formGroup]="formLogin" class="flex flex-col w-full px-2 min-[390px]:px-3 sm:px-4 gap-3 min-[390px]:gap-4 mt-2">
         <div class="relative">
             <input type="text" formControlName="username" placeholder="Usuario" autocomplete="username"
-                   class="w-full text-lg placeholder:text-gray-400 text-black p-4 pl-12 bg-gray-50/50 border border-gray-200 rounded-xl 
+                   class="w-full text-base min-[390px]:text-lg placeholder:text-gray-400 text-black p-3 min-[390px]:p-4 pl-11 min-[390px]:pl-12 bg-gray-50/50 border border-gray-200 rounded-lg min-[390px]:rounded-xl 
                    focus:outline-none focus:border-blue-500/60 focus:ring-2 focus:ring-blue-200 
                    hover:border-blue-300 transition-all duration-300">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 min-[390px]:h-6 min-[390px]:w-6 text-gray-400 absolute left-3 min-[390px]:left-4 top-1/2 -translate-y-1/2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
         </div>
         <div class="relative">
             <input type="password" autocomplete="current-password" formControlName="password" placeholder="Contraseña" 
-                   class="w-full text-lg placeholder:text-gray-400 text-black p-4 pl-12 bg-gray-50/50 border border-gray-200 rounded-xl 
+                   class="w-full text-base min-[390px]:text-lg placeholder:text-gray-400 text-black p-3 min-[390px]:p-4 pl-11 min-[390px]:pl-12 bg-gray-50/50 border border-gray-200 rounded-lg min-[390px]:rounded-xl 
                    focus:outline-none focus:border-blue-500/60 focus:ring-2 focus:ring-blue-200 
                    hover:border-blue-300 transition-all duration-300">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 min-[390px]:h-6 min-[390px]:w-6 text-gray-400 absolute left-3 min-[390px]:left-4 top-1/2 -translate-y-1/2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
         </div>
