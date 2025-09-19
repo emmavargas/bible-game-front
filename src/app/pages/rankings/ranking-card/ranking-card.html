@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-3 lg:gap-4 bg-white w-full py-4 lg:py-6 px-2 lg:px-4 rounded-xl lg:rounded-2xl shadow-lg">
+<div class="flex flex-col gap-4 bg-white w-full py-6 px-0.25 rounded-t-2xl">
     <app-ranking-header-card [difficulty]="difficulty()"></app-ranking-header-card>
     @for (item of rankingState.getRanking(difficulty()).content; track $index) {
         <app-ranking-row-card [username]="item.username" [score]="item.score" [date]="item.date" [position]="item.position"></app-ranking-row-card>
