@@ -24,7 +24,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "outputPath": "dist/bible-game"
+            "outputPath": "dist/bible-game-angular"
           },
           "configurations": {
             "production": {
