@@ -1,16 +1,8 @@
 {
-  "version": 2,
-  "public": true,
-  "builds": [
+  "rewrites": [
     {
-      "src": "dist/bible-game-angular/browser/**",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    { 
-      "src": "/(.*)", 
-      "dest": "/dist/bible-game-angular/browser/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
