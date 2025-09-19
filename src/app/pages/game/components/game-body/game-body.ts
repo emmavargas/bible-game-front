@@ -16,11 +16,9 @@ export class GameBody {
   question = input.required<string>();
   hint = input.required<string>();
 
-  // ✅ Emitir respuesta al padre
-
+  // ✅ Emitir eventos al padre
   responseQuestion = output<string>(); // Emitir respuesta al padre
-
-  //@Output() responseQuestion = new EventEmitter<string>();
+  showHintEvent = output<void>(); // Emitir evento de mostrar pista
 
 
   text = signal('');
@@ -85,5 +83,13 @@ export class GameBody {
   }
   onBlur() {
     this.isFocused.set(false);
+  }
+
+  onHintClick() {
+    this.showHintEvent.emit();
+  }
+
+  showHint() {
+    
   }
 }

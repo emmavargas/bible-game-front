@@ -48,6 +48,7 @@ register() {
   this.authService.register(dto).subscribe({
     next: (response) => {
       console.log('Register successful:', response);
+      this.router.navigate(['auth/login']);
       this.backendError.set(''); // limpio errores si todo salió bien
     },
     error: (err) => {
@@ -57,6 +58,9 @@ register() {
         // Por ejemplo, mostrar solo username o email
         this.backendError.set(apiError.details['username'] || apiError.details['email'] || apiError.details['password'] || 'Error desconocido');
       }
+      setTimeout(() => {
+        this.backendError.set('');
+      }, 3000);
     }
   });
 }

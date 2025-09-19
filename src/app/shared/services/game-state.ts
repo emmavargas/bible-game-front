@@ -6,6 +6,7 @@ import { Injectable, signal } from '@angular/core';
 export class GameState {
   
   showResultInfo = signal<boolean>(false);
+  showHintInfo = signal<boolean>(false);
   difficulty = signal<string>('EASY');
   score = signal<number>(0);
   currentQuestionIndex = signal<number>(1);
@@ -17,6 +18,8 @@ export class GameState {
   nameUser = signal<string>('');
   isLogin = signal<boolean>(false);
   question = signal<string>('');
+  bibleVerseAnswer = signal<string>('');
+  bibleVersionL = signal<string>('');
   hint = signal<string>('');
   answerLength = signal<number>(0);
   idSession = signal<number>(0);
@@ -121,5 +124,23 @@ export class GameState {
   }
   setShowResultInfo(show: boolean) {
     this.showResultInfo.set(show);
+  }
+  getShowHintInfo() {
+    return this.showHintInfo();
+  }
+  setShowHintInfo(show: boolean) {
+    this.showHintInfo.set(show);
+  }
+  getBibleVerseAnswer() {
+    return this.bibleVerseAnswer();
+  }
+  setBibleVerseAnswer(answer: string) {
+    this.bibleVerseAnswer.set(answer);
+  }
+  getBibleVersionL() {
+    return this.bibleVersionL();
+  }
+  setBibleVersionL(version: string) {
+    this.bibleVersionL.set(version);
   }
 }

@@ -4,4 +4,5 @@ export interface QuestionDto {
     bibleVerseAnswer: string;
     bibleVersionL: string;
     answerLength: number;
+    hint: string;
 }

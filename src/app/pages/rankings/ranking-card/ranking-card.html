@@ -1,10 +1,7 @@
-<div class="flex flex-col gap-4 bg-white w-full py-6 px-0.25 rounded-2xl">
-    <app-ranking-header-card></app-ranking-header-card>
-    <app-ranking-row-card></app-ranking-row-card>
-    <app-ranking-row-card></app-ranking-row-card>
-    <app-ranking-row-card></app-ranking-row-card>
-    <app-ranking-row-card></app-ranking-row-card>
-    <app-ranking-row-card></app-ranking-row-card>
-    <app-ranking-row-card></app-ranking-row-card>
+<div class="flex flex-col gap-4 bg-white w-full py-6 px-0.25 rounded-t-2xl">
+    <app-ranking-header-card [difficulty]="difficulty()"></app-ranking-header-card>
+    @for (item of rankingState.getRanking(difficulty()).content; track $index) {
+        <app-ranking-row-card [username]="item.username" [score]="item.score" [date]="item.date" [position]="item.position"></app-ranking-row-card>
+    }
 </div>
-<app-ranking-paginator-card></app-ranking-paginator-card>
+

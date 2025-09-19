@@ -1,0 +1,10 @@
+<div class="flex items-center gap-3 mb-4">
+    <span class="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center text-white text-sm">🏆</span>
+    <span class="font-semibold text-gray-700">Estadísticas de Juego</span>
+    <span class="text-xs bg-yellow-100 text-yellow-600 px-2 py-1 rounded-full ml-2">Mejores puntajes</span>    
+</div>
+<div class="grid grid-cols-3 gap-6">
+    <app-profile-score-card [difficulty]="'FACIL'" [iconCircle]="'🟢'"></app-profile-score-card>
+    <app-profile-score-card [difficulty]="'MEDIO'" [iconCircle]="'🟡'"></app-profile-score-card>
+    <app-profile-score-card [difficulty]="'DIFICIL'" [iconCircle]="'🔴'"></app-profile-score-card>
+</div>

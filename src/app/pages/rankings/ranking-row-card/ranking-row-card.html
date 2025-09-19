@@ -1,12 +1,12 @@
 <div class="flex justify-start gap-4 items-center w-full border-b-1 border-gray-200 pb-4 px-3">
     <div class="flex items-center justify-center bg-amber-500 box-content h-8 w-10 rounded-full">
-        <h1 class="text-base text-white font-semibold">1</h1>
+        <h1 class="text-base text-white font-semibold">{{position()}}</h1>
     </div>
     <div class="flex justify-between items-center w-full">
         <div class="flex flex-col">
-            <h2 class="text-base font-semibold">Emmanuel</h2>
-            <span class="text-base text-gray-400 font-normal">13/8/2025</span>
+            <h2 class="text-base font-semibold">{{username()}}</h2>
+            <span class="text-base text-gray-400 font-normal">{{date()}}</span>
         </div>
-        <h1 class="text-2xl font-medium">50</h1>
+        <h1 class="text-2xl font-medium">{{score()}}</h1>
     </div>
 </div>

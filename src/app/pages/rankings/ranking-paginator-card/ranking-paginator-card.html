@@ -1,5 +1,23 @@
-<div>
-    <button>← Anterior</button>
-    <span>Pagina 1 de 10</span>
-    <button>Siguiente →</button>
+<div class="flex items-center justify-center gap-4 w-full bg-gray-50 px-4 py-2 rounded-b-2xl">
+  <button 
+    class="px-3 py-1.5 rounded-lg border text-sm transition-colors duration-200 
+           disabled:bg-gray-100 disabled:border-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed
+           bg-white border-gray-300 text-gray-700 hover:bg-gray-100"
+    [disabled]="isDisabledPrevious()"
+    (click)="previous.emit(difficulty())">
+    ← Anterior
+  </button>
+
+  <span class="text-gray-600 text-sm">
+    Página {{currentPage()}} de {{lastPage()}}
+  </span>
+
+  <button 
+    class="px-3 py-1.5 rounded-lg border text-sm transition-colors duration-200
+           disabled:bg-gray-100 disabled:border-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed
+           bg-white border-gray-300 text-gray-700 hover:bg-gray-100"
+    [disabled]="isDisabledNext()"
+    (click)="next.emit(difficulty())">
+    Siguiente →
+  </button>
 </div>

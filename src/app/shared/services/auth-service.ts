@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginResponse } from '../../pages/login/models/login-response';
 import { RegisterDto } from '../../pages/register/model/register-dto';
+import { AuthResponseDto } from '../models/auth-response-dto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-    private apiUrl = 'http://localhost:8080/api';
+    private apiUrl = 'https://bibleapp.emmanueldev.com.ar/api';
 
 
     constructor(private http: HttpClient) { }
@@ -21,7 +22,11 @@ export class AuthService {
     }
   
     auth(){
-      return this.http.get(`${this.apiUrl}/check`,{withCredentials: true});
+      return this.http.get<AuthResponseDto>(`${this.apiUrl}/check`,{withCredentials: true});
+    }
+
+    logout(){
+      return this.http.post(`${this.apiUrl}/logout`,{},{withCredentials: true});
     }
 
 }

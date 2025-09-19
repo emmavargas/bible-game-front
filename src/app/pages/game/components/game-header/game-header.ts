@@ -13,6 +13,20 @@ export class GameHeader {
     return '♥'.repeat(this.gameState.getLives());
   });
 
+  difficulty = computed(() => {
+    const level = this.gameState.difficulty();
+    if (level === 'EASY') {
+      return 'FÁCIL'; 
+    }
+    if (level === 'MEDIUM') {
+      return 'MEDIO'; 
+    }
+    if (level === 'HARD') {
+      return 'DIFÍCIL'; 
+    }
+    return '';
+  });
+
   constructor(public gameState: GameState) { }
 
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-ranking-row-card',
@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class RankingRowCard {
 
+  username = input.required<string>()
+  score = input.required<number>()
+  date = input.required<string>()
+  position = input.required<number>()
 }

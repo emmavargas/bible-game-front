@@ -1,10 +1,11 @@
-import { Component, effect, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, effect, inject, OnInit, signal } from '@angular/core';
 import { GameHeader } from './components/game-header/game-header';
 import { GameBody } from "./components/game-body/game-body";
 import { GameState } from '../../shared/services/game-state';
 import { GameQuiz } from '../../shared/services/game-quiz';
 import { GameResponseDto } from './models/game-response-dto';
 import { Router } from '@angular/router';
+import { ProfileState } from '../../shared/services/profile/profile-state';
 
 
 
@@ -16,62 +17,59 @@ import { Router } from '@angular/router';
 })
 export class Game implements OnInit {
 
+  hint = computed<string>(() => {
+    const pista = this.gameState.hint();
+    const versiculo = this.gameState.getBibleVerseAnswer();
+    const version = this.gameState.getBibleVersionL();
+    return `${pista}\n${versiculo} - ${version}`;
+  });
+
   
   private router = inject(Router);
 
-  constructor(public gameState: GameState, private gameService: GameQuiz) { 
+  handleShowHint() {
+    this.gameState.showHintInfo.set(true);
+  }
+
+  constructor(public gameState: GameState, private gameService: GameQuiz, private profileState: ProfileState) { 
   
     effect(() => {
       if (this.gameState.getIsQuizCompleted()) {
         this.router.navigate(['/result']);
       }
     });
-   }
+  }
 
   
 
   ngOnInit() {
-    const sessionId = sessionStorage.getItem('sessionId');
-    console.log('llego bien?', sessionId);
-    if (sessionId) {
-      // Restaurar estado desde el backend
-      this.gameService.recoverySession(Number(sessionId)).subscribe({
-        next: (state: GameResponseDto) => {
-          this.restoreGameState(state);
-          console.log('Estado restaurado:', state);
-        },
-        error: (err) => {
-          this.startGame(); // si falla, iniciar nueva sesión
-        }
-      });
-    } else {
-      this.startGame(); // nueva sesión
-    }
+    this.startGame();
   }
+  
 
   startGame() {
+    // Limpiamos el estado anterior
+    this.gameState.setIsQuizCompleted(false);
+    this.gameState.setScore(0);
+    this.gameState.setCorrectAnswersCount(0);
+    this.gameState.setIncorrectAnswersCount(0);
+    
     const difficulty = this.gameState.getDifficulty();
     console.log('Starting game with difficulty:', difficulty);
     this.gameService.starGameSession(difficulty).subscribe({
       next: (response:GameResponseDto) => {
         console.log('Game session started:', response);
         this.gameState.setDifficulty(response.difficulty);
-        this.gameState.setIsQuizCompleted(response.finished);
         this.gameState.setCurrentQuestionIndex(response.currentIndex);
         this.gameState.setTotalQuestions(response.totalQuestion); // Assuming 10 questions for simplicity
         this.gameState.setLives(response.lives);
         this.gameState.setScore(response.score); // Reset score to 0
-        this.gameState.setNameUser('Emmanuel'); // Reset user name
         this.gameState.setQuestion(response.questionDto?.question ?? ''); // Reset question
-        this.gameState.setHint(response.questionDto?.bibleVerseAnswer ?? ''); // Reset hint
+        this.gameState.setBibleVerseAnswer(response.questionDto?.bibleVerseAnswer ?? '');
+        this.gameState.setBibleVersionL(response.questionDto?.bibleVersionL ?? '');
+        this.gameState.setHint(response.questionDto?.hint ?? ''); // Reset hint
         this.gameState.setAnswerLength(response.questionDto?.answerLength ?? 5); // Reset answer length
-//        this.gameState.sessionId.set(response.sessionId); // Set session ID
-//        this.gameReady.set(true); // Indicate that the game is ready
         this.gameState.setIdSession(response.idSession);
-        sessionStorage.setItem('sessionId', response.idSession.toString());
-        console.log('Session ID:', sessionStorage.getItem('sessionId'));
-
-
       },
       error: (error) => {
         console.error('Error starting game session:', error);
@@ -80,6 +78,7 @@ export class Game implements OnInit {
   }
 
   handleResponseQuestion(value: string) {
+    this.gameState.setShowHintInfo(false);
     if (this.gameState.isQuizCompleted()) {
       console.log('terminado');
       return;
@@ -125,31 +124,12 @@ export class Game implements OnInit {
     this.gameState.setIsQuizCompleted(response.finished);
     this.gameState.setCurrentQuestionIndex(response.currentIndex);
     this.gameState.setTotalQuestions(response.totalQuestion);
-    this.gameState.setNameUser('Emmanuel');
     this.gameState.setQuestion(response.questionDto?.question ?? '');
-    this.gameState.setHint(response.questionDto?.bibleVerseAnswer ?? '');
+    this.gameState.setHint(response.questionDto?.hint ?? '');
+    this.gameState.setBibleVerseAnswer(response.questionDto?.bibleVerseAnswer ?? '');
+    this.gameState.setBibleVersionL(response.questionDto?.bibleVersionL ?? '');
     this.gameState.setAnswerLength(response.questionDto?.answerLength ?? 3);
     this.gameState.setIdSession(response.idSession);
   }
-
-  private restoreGameState(state: GameResponseDto) {
-    this.gameState.setDifficulty(state.difficulty);
-    this.gameState.setIsQuizCompleted(state.finished);
-    this.gameState.setCurrentQuestionIndex(state.currentIndex);
-    this.gameState.setTotalQuestions(state.totalQuestion);
-    this.gameState.setLives(state.lives);
-    this.gameState.setScore(state.score);
-    this.gameState.setNameUser('Emmanuel');
-    this.gameState.setQuestion(state.questionDto?.question ?? '');
-    this.gameState.setHint(state.questionDto?.bibleVerseAnswer ?? '');
-    this.gameState.setAnswerLength(state.questionDto?.answerLength ?? 3);
-    this.gameState.setIdSession(state.idSession);
-
-    // Mantener sessionId en sessionStorage
-    sessionStorage.setItem('sessionId', state.idSession.toString());
-  }
-
-
-
-
 }
+

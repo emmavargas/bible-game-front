@@ -1,2 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+
+/* Configuración global de fuentes */
+body {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Estilos para títulos */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Estilos para texto de entrada y botones */
+input, button {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+}

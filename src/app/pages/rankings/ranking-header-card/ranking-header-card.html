@@ -1,4 +1,7 @@
-<div class="flex flex-col w-full bg-green-500 gap-1 items-center mb-4">
-    <h1 class="text-2xl font-bold text-white">FACIL</h1>
-    <span class="text-base text-white font-normal">11 jugadores registrados</span>
+<div class="flex flex-col w-full gap-1 items-center mb-4" [ngClass]="{
+    'bg-green-500': difficulty() === 'EASY',
+    'bg-yellow-500': difficulty() === 'MEDIUM',
+    'bg-red-500': difficulty() === 'HARD'
+}">
+    <h1 class="text-2xl font-bold text-white">{{nameDifficulty()}}</h1>
 </div>

@@ -7,7 +7,7 @@ import { GameResponseDto } from '../../pages/game/models/game-response-dto';
 })
 export class GameQuiz {
   
-  private apiUrl = 'http://localhost:8080/api/game-session';
+  private apiUrl = 'https://bibleapp.emmanueldev.com.ar/api/game-session';
 
   constructor(private http: HttpClient) { }
   starGameSession(difficulty: string) {
@@ -18,8 +18,8 @@ export class GameQuiz {
     return this.http.post<GameResponseDto>(`${this.apiUrl}/nextQuestion`, { idSession, answer },{withCredentials: true});
   }
 
-  recoverySession(idSession: number) {
-    return this.http.post<GameResponseDto>(`${this.apiUrl}`, { idSession },{withCredentials: true});
-  }
+//  recoverySession(idSession: number) {
+//    return this.http.post<GameResponseDto>(`${this.apiUrl}`, { idSession },{withCredentials: true});
+//  }
 
 }

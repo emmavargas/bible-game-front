@@ -26,9 +26,18 @@
 
     <div class="flex gap-3 items-center justify-between">
       <button 
-      [ngClass]="activatedButton() ? 'bg-green-400/30 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700 cursor-pointer'"
-      type="submit" [disabled]="activatedButton()" class="  backdrop-blur-md rounded-3xl p-3  hover:scale-105 transition-all duration-300 w-1/2 text-2xl font-bold text-white disabled:bg-green-400/30 disabled:cursor-not-allowed">RESPONDER</button>
-      <button type="button" class="bg-white/40 border-2 backdrop-blur-md p-3 rounded-3xl hover:bg-orange-300/20 hover:text-black  hover:scale-105 transition-all duration-300 w-1/2  text-2xl font-bold text-orange-400 cursor-pointer ">PISTA</button>
+      [ngClass]="(activatedButton() || !responseForm.valid) ? 'bg-green-400/30 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700 cursor-pointer'"
+      type="submit" 
+      [disabled]="activatedButton() || !responseForm.valid" 
+      class="backdrop-blur-md rounded-3xl p-3 hover:scale-105 transition-all duration-300 w-1/2 text-2xl font-bold text-white disabled:bg-green-400/30 disabled:cursor-not-allowed">
+        RESPONDER
+      </button>
+            <button 
+        type="button" 
+        (click)="onHintClick()"
+        class="bg-white/40 border-2 backdrop-blur-md p-3 rounded-3xl hover:bg-orange-300/20 hover:text-black hover:scale-105 transition-all duration-300 w-1/2 text-2xl font-bold text-orange-400 cursor-pointer">
+        PISTA
+      </button>
     </div>
 
   </form>

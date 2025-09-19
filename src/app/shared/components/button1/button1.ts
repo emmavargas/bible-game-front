@@ -8,6 +8,8 @@ import { Component, input, output, Output } from '@angular/core';
 })
 export class Button1 {
 
+  idform = input<string>('');
+
   clicked = output();
 
   textBtn = input<string>('');
