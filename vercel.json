@@ -1,15 +1,16 @@
 {
   "version": 2,
+  "public": true,
   "builds": [
     {
-      "src": "package.json",
-      "use": "@vercel/node"
+      "src": "dist/bible-game-angular/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "dist/bible-game/index.html"
+    { 
+      "src": "/(.*)", 
+      "dest": "/dist/bible-game-angular/index.html"
     }
   ]
 }
