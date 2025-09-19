@@ -1,18 +1,18 @@
-<div class="flex flex-col gap-7 mt-3 w-full py-6 px-10 items-center justify-center bg-white rounded-2xl shadow-lg shadow-purple-800/80">
-  <h1 class="bg-gradient-to-bl from-purple-800 via-purple-600 to-purple-400 text-white font-bold px-5 py-2 rounded-2xl">Pregunta #1</h1>
-  <span class="text-3xl font-bold text-black/80">{{question()}}</span>
+<div class="flex flex-col gap-4 sm:gap-7 mt-2 sm:mt-3 w-full py-4 sm:py-6 px-4 sm:px-10 items-center justify-center bg-white rounded-xl sm:rounded-2xl shadow-lg shadow-purple-800/80">
+  <h1 class="bg-gradient-to-bl from-purple-800 via-purple-600 to-purple-400 text-white font-bold px-4 sm:px-5 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl text-sm sm:text-base">Pregunta #1</h1>
+  <span class="text-lg sm:text-2xl md:text-3xl font-bold text-black/80 text-center px-2">{{question()}}</span>
 
   <!-- Cuadros fijos con letras que se van llenando -->
-  <div class="flex gap-5 w-full justify-center">
+  <div class="flex flex-wrap gap-2 sm:gap-5 w-full justify-center px-2">
     @for (char of letras(); track $index) {
-      <div class="flex bg-gray-300/20 border-3 border-gray-300 backdrop-blur-md text-blue-500 font-semibold w-12 h-12 rounded-2xl items-center justify-center">
-        <span class="text-3xl">{{ char }}</span>
+      <div class="flex bg-gray-300/20 border-2 sm:border-3 border-gray-300 backdrop-blur-md text-blue-500 font-semibold w-8 sm:w-12 h-8 sm:h-12 rounded-xl sm:rounded-2xl items-center justify-center">
+        <span class="text-xl sm:text-2xl md:text-3xl">{{ char }}</span>
       </div>
     }
   </div>
 
 
-  <form [formGroup]='responseForm' (ngSubmit)="onSubmit()" class="flex flex-col gap-5 w-full">
+  <form [formGroup]='responseForm' (ngSubmit)="onSubmit()" class="flex flex-col gap-3 sm:gap-5 w-full px-2 sm:px-0">
     <input 
       (focus)="onFocus()"
       (blur)="onBlur()"
@@ -21,10 +21,10 @@
       type="text" 
       (input)="onInput($event)" 
       [maxLength]="answerLength()"
-      class="bg-amber-50 p-3 rounded-3xl border-2 focus:outline-none transition-all duration-300"
+      class="bg-amber-50 p-2.5 sm:p-3 text-base sm:text-lg rounded-2xl sm:rounded-3xl border-2 focus:outline-none transition-all duration-300 text-center uppercase"
     />
 
-    <div class="flex gap-3 items-center justify-between">
+    <div class="flex gap-2 sm:gap-3 items-center justify-between">
       <button 
       [ngClass]="(activatedButton() || !responseForm.valid) ? 'bg-green-400/30 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700 cursor-pointer'"
       type="submit" 
