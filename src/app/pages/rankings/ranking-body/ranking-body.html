@@ -1,4 +1,4 @@
-<div class="flex w-full mt-15 gap-5">
+<div class="flex flex-col lg:flex-row w-full gap-2 min-[390px]:gap-3 lg:gap-5 mt-2 min-[390px]:mt-3 lg:mt-15">
   <div class="flex-1">
       <app-ranking-card [difficulty]="'EASY'"></app-ranking-card>
       <app-ranking-paginator-card [difficulty]="'EASY'" (next)="onNext('EASY')" (previous)="onPrevious('EASY')"></app-ranking-paginator-card>
