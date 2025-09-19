@@ -1,4 +1,4 @@
-<div class="flex flex-col w-full gap-6 p-4">
+<div class="flex flex-col w-full gap-4 sm:gap-6 p-3 sm:p-4">
   <app-game-header class="transform transition-all duration-300 hover:scale-[1.01]"></app-game-header>
   <app-game-body
     class="transform transition-all duration-300 hover:scale-[1.01]"
@@ -12,20 +12,20 @@
 </div>
 @if (gameState.showResultInfo()) {
   @if (gameState.isCorrect()) {
-    <div class="flex flex-col w-full items-center justify-center bg-green-500/90 rounded-2xl 
-                shadow-lg shadow-green-200 p-6 mt-6 transform transition-all duration-300 
+    <div class="flex flex-col w-full items-center justify-center bg-green-500/90 rounded-xl sm:rounded-2xl 
+                shadow-lg shadow-green-200 p-4 sm:p-6 mt-4 sm:mt-6 transform transition-all duration-300 
                 hover:scale-[1.02] animate-fadeIn">
-      <h1 class="text-3xl font-bold text-white tracking-wide flex items-center gap-3">
+      <h1 class="text-xl sm:text-3xl font-bold text-white tracking-wide flex items-center gap-2 sm:gap-3">
         ¡Correcto! <span class="text-green-200">+10 puntos</span> 🎉
       </h1>
     </div>
   }@else {
-    <div class="flex flex-col w-full items-center justify-center bg-red-500/90 rounded-2xl 
-                shadow-lg shadow-red-200 p-6 mt-6 transform transition-all duration-300 
+    <div class="flex flex-col w-full items-center justify-center bg-red-500/90 rounded-xl sm:rounded-2xl 
+                shadow-lg shadow-red-200 p-4 sm:p-6 mt-4 sm:mt-6 transform transition-all duration-300 
                 hover:scale-[1.02] animate-fadeIn">
-      <h1 class="text-3xl font-bold text-white tracking-wide flex flex-col items-center gap-2">
+      <h1 class="text-xl sm:text-3xl font-bold text-white tracking-wide flex flex-col items-center gap-1 sm:gap-2">
         <span>Incorrecto 😕</span>
-        <span class="text-xl text-red-100">La respuesta era: <span class="font-mono bg-red-600/50 px-3 py-1 rounded-lg">{{gameState.correctAnswer()}}</span></span>
+        <span class="text-base sm:text-xl text-red-100">La respuesta era: <span class="font-mono bg-red-600/50 px-2 sm:px-3 py-1 rounded-lg text-sm sm:text-base">{{gameState.correctAnswer()}}</span></span>
       </h1>
     </div>
   }
