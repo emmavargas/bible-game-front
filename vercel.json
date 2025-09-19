@@ -1,5 +1,30 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "outputDirectory": "dist/bible-game",
+        "buildCommand": "ng build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/dist/bible-game/assets/$1"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/dist/bible-game/favicon.ico"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/bible-game/index.html"
+    }
   ]
 }
