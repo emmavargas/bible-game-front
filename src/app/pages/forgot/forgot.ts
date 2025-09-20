@@ -2,11 +2,11 @@ import { Component, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators, ɵInternalFormsSharedModule, ReactiveFormsModule } from '@angular/forms';
 import { RecoveryService } from '../../shared/services/recovery/recovery-service';
 import { ApiError } from '../register/model/api-error';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-forgot',
-  imports: [ɵInternalFormsSharedModule, ReactiveFormsModule],
+  imports: [ɵInternalFormsSharedModule, ReactiveFormsModule, RouterLink],
   templateUrl: './forgot.html',
   styleUrl: './forgot.css'
 })
