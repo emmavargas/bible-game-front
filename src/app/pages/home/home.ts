@@ -20,7 +20,6 @@ export class Home {
       },
       error: (error) => {
         console.error('Login error:', error);
-        // Maneja el error de login, como mostrar un mensaje al usuario
       }
     })
   }

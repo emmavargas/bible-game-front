@@ -16,13 +16,13 @@ export class GameHeader {
   difficulty = computed(() => {
     const level = this.gameState.difficulty();
     if (level === 'EASY') {
-      return 'FÁCIL'; 
+      return 'FACIL'; 
     }
     if (level === 'MEDIUM') {
       return 'MEDIO'; 
     }
     if (level === 'HARD') {
-      return 'DIFÍCIL'; 
+      return 'DIFICIL'; 
     }
     return '';
   });
