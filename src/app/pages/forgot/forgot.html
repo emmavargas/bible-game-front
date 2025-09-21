@@ -1,20 +1,20 @@
-<div class="flex flex-col items-center space-y-6 bg-violet-900/50 rounded-2xl p-8 backdrop-blur-sm shadow-lg max-w-md w-full">
-    <div class="text-center space-y-3">
-        <div class="text-4xl mb-2">🔐</div>
-        <h2 class="text-2xl font-bold text-white">Recuperar Contraseña</h2>
-        <span class="text-white/80 block">No te preocupes, te ayudamos a recuperar el acceso a tu cuenta</span>
+<div class="flex flex-col items-center w-full bg-violet-900/50 rounded-xl min-[390px]:rounded-2xl p-4 min-[390px]:p-6 sm:p-8 space-y-4 min-[390px]:space-y-5 sm:space-y-6 backdrop-blur-sm shadow-lg">
+    <div class="text-center space-y-2 min-[390px]:space-y-3">
+        <div class="text-3xl min-[390px]:text-4xl mb-1 min-[390px]:mb-2">🔐</div>
+        <h2 class="text-xl min-[390px]:text-2xl font-bold text-white">Recuperar Contraseña</h2>
+        <span class="text-white/80 block text-sm min-[390px]:text-base">No te preocupes, te ayudamos a recuperar el acceso a tu cuenta</span>
     </div>
-    <div class="w-full space-y-6">
-        <form [formGroup]="form" (ngSubmit)="sendRecoveryCode()" class="space-y-4">
+    <div class="w-full space-y-4 min-[390px]:space-y-5 sm:space-y-6">
+        <form [formGroup]="form" (ngSubmit)="sendRecoveryCode()" class="space-y-3 min-[390px]:space-y-4">
             <div class="space-y-2">
-                <input formControlName="email" type="email" placeholder="Ingresa tu correo electrónico" class="w-full px-4 py-3 bg-white/10 border border-violet-400/30 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-violet-400/60">
+                <input formControlName="email" type="email" placeholder="Ingresa tu correo electrónico" class="w-full px-3 min-[390px]:px-4 py-2.5 min-[390px]:py-3 bg-white/10 border border-violet-400/30 rounded-lg min-[390px]:rounded-xl text-white text-sm min-[390px]:text-base placeholder-white/50 focus:outline-none focus:border-violet-400/60">
             </div>
-            <button type="submit" class="w-full py-3 bg-violet-500 hover:bg-violet-600 text-white rounded-xl transition-colors font-medium">Enviar Código de Recuperación</button>
+            <button type="submit" class="w-full py-2.5 min-[390px]:py-3 bg-violet-500 hover:bg-violet-600 text-white text-sm min-[390px]:text-base rounded-lg min-[390px]:rounded-xl transition-colors font-medium">Enviar Código de Recuperación</button>
         </form>
 
         <div class="relative flex items-center">
             <div class="flex-grow border-t border-white/20"></div>
-            <span class="px-4 text-white/60 text-sm">o</span>
+            <span class="px-3 min-[390px]:px-4 text-white/60 text-xs min-[390px]:text-sm">o</span>
             <div class="flex-grow border-t border-white/20"></div>
         </div>
 
