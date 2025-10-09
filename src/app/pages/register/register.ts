@@ -56,7 +56,7 @@ register() {
       if (apiError && apiError.details) {
         console.log('Detalles del error:', apiError.details);
         // Por ejemplo, mostrar solo username o email
-        this.backendError.set(apiError.details['username'] || apiError.details['email'] || apiError.details['password'] || 'Error desconocido');
+        this.backendError.set(apiError.details['username'] || apiError.details['email'] || apiError.details['password'] || apiError.details['confirmPassword'] || 'Error desconocido');
       }
       setTimeout(() => {
         this.backendError.set('');
