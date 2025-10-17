@@ -63,6 +63,7 @@ register() {
         this.backendError.set(apiError.details['username'] || apiError.details['email'] || apiError.details['password'] || apiError.details['confirmPassword'] || 'Error desconocido');
       }
       setTimeout(() => {
+        this.disableRegister = false;
         this.backendError.set('');
       }, 3000);
     }
