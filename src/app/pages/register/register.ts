@@ -37,7 +37,6 @@ export class Register {
 
 register() {
   if(this.disableRegister) return;
-  console.log("numeros de veces clickeado")
   this.disableRegister = true;
   const dto: RegisterDto = {
     username: this.formRegister.value.username!,
@@ -53,7 +52,7 @@ register() {
     next: (response) => {
       console.log('Register successful:', response);
       this.router.navigate(['auth/login']);
-      this.backendError.set(''); // limpio errores si todo salió bien
+      this.backendError.set('');
     },
     error: (err) => {
       const apiError: ApiError = err.error;
