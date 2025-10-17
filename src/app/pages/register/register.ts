@@ -37,7 +37,7 @@ export class Register {
 
 register() {
   if(this.disableRegister) return;
-
+  console.log("numeros de veces clickeado")
   this.disableRegister = true;
   const dto: RegisterDto = {
     username: this.formRegister.value.username!,
