@@ -34,7 +34,7 @@
                 class="w-full text-base placeholder:text-gray-400 text-black p-3 border-1 border-gray-300 rounded-xl focus:outline-none focus:border-gray-500/60 transition-all duration-300">
         </div>
 
-        <app-button1 [textBtn]='"Registrarse"' (clicked)="register()"></app-button1>
+        <app-button1 [disabled]="disableRegister || formRegister.invalid" [textBtn]='"Registrarse"' (clicked)="register()"></app-button1>
         <app-button2 [textBtn]="'Volver al Login'" (click)="goLogin()"></app-button2>
     </form>
     @if (backendError()) {

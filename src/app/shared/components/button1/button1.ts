@@ -10,6 +10,8 @@ export class Button1 {
 
   idform = input<string>('');
 
+  disabled = input<boolean>(true);
+
   clicked = output();
 
   textBtn = input<string>('');

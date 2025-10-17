@@ -6,7 +6,6 @@ import { AuthService } from '../../shared/services/auth-service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RegisterDto } from './model/register-dto';
 import { ApiError } from './model/api-error';
-import { single } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -15,6 +14,8 @@ import { single } from 'rxjs';
   styleUrl: './register.css'
 })
 export class Register {
+
+  disableRegister = false;
 
   backendError = signal('');
 
@@ -35,6 +36,9 @@ export class Register {
 
 
 register() {
+  if(this.disableRegister) return;
+
+  this.disableRegister = true;
   const dto: RegisterDto = {
     username: this.formRegister.value.username!,
     password: this.formRegister.value.password!,
